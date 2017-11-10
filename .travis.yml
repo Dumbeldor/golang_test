@@ -3,9 +3,13 @@ language: go
 go:
   - master
 
+services:
+  - postgresql
+
 before_install:
   - go get -v
 
 script:
+  - psql -c 'create database test; create user test;' -U postgres
   - go build
   - go test -v

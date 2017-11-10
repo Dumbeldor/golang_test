@@ -6,7 +6,7 @@ import (
 
 	"bytes"
 	"encoding/json"
-	"github/Dumbeldor/web"
+	"github.com/Dumbeldor/golang_test"
 	"log"
 	"net/http"
 	"net/http/httptest"
