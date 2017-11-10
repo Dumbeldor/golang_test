@@ -10,6 +10,7 @@ before_install:
   - go get -v
 
 script:
-  - psql -c 'create database test; create user test;' -U postgres
+  - psql -c 'create database test;' -U postgres
+  - psql -c 'create user test;' -U postgres
   - go build
   - go test -v
