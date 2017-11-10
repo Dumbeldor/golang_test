@@ -3,8 +3,6 @@ language: go
 go:
   - master
 
-go_import_path: github.com/dumbeldor/golang_test
-
 before_install:
   - go get -v
 
