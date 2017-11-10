@@ -4,15 +4,14 @@ import (
 	"os"
 	"testing"
 
+	"bytes"
+	"encoding/json"
 	"github/Dumbeldor/web"
 	"log"
 	"net/http"
 	"net/http/httptest"
-	"encoding/json"
-	"bytes"
 	"strconv"
 )
-
 
 const tableCreationQuery = `CREATE TABLE IF NOT EXISTS products
 	(
@@ -27,13 +26,12 @@ var a main.App
 func TestMain(m *testing.M) {
 	a = main.App{}
 	/*
-	a.Initialize(
-		os.Getenv("TEST_DB_USERNAME"),
-		os.Getenv("TEST_DB_PASSWORD"),
-		os.Getenv("TEST_DB_NAME"))
+		a.Initialize(
+			os.Getenv("TEST_DB_USERNAME"),
+			os.Getenv("TEST_DB_PASSWORD"),
+			os.Getenv("TEST_DB_NAME"))
 	*/
-	a.Initialize(
-		"test","","test")
+	a.Initialize("test", "", "test")
 
 	ensureTableExists()
 
@@ -193,4 +191,3 @@ func TestDeleteProduct(t *testing.T) {
 	response = executeRequest(req)
 	checkResponseCode(t, http.StatusNotFound, response.Code)
 }
-

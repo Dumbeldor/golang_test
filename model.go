@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"errors"
 )
 
 type product struct {
@@ -10,7 +9,6 @@ type product struct {
 	Name  string  `json:"name"`
 	Price float64 `json:"price"`
 }
-
 
 func (p *product) getProduct(db *sql.DB) error {
 	return db.QueryRow("SELECT name, price FROM products WHERE id=$1",
